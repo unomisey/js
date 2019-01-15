@@ -14,31 +14,35 @@
 </head>
 <body>
 	
-		<!--<form class="card-body" id="e1">
-			<h5 class="card-title">Введите число</h5>
-			<input type="text" href="#"></input>
-		</form>
-		<form>
-			<input type="submit" href="#" class="btn btn-primary" onsubmit="loi(document.getElementById('e1')" value="Рассчитать"></input>
-		</form>-->
+	<div>Введите число: <input type="text" id="n"></div>
+	<button onclick="f1()">Рассчитать</button>
+	<div id="out">...</div>
 				
 	<script type="text/javascript">
-
-		var x, a, s, b;
-		x = prompt();
+		function f1() {
+		var x, a, s, b, out;
+		x = document.getElementById('n').value;
+		x = parseFloat(x);
 		a = 2;
-		while(x >= 1){
-			x = prompt();
+		out = document.getElementById('out');
+		// while(x >= 1){
+		// 	x = prompt();
+		// }
+			if (x<1){
+				b = 0;
+				s = x**2/a;
+				while(s > 0.0005){
+					b += s;
+					a += 4;
+					s = x**2/a;
+				}
+				
+				out.innerHTML = b;
+		    }
+		    else{
+		    	out.innerHTML = 'Неверное число';
+		    }
 		}
-		b = 0;
-		s = x**2/a;
-		while(s > 0.0005){
-			b += s;
-			a += 4;
-			s = x**2/a;
-		}
-		alert(b);
-		
 
 		
 	</script>
